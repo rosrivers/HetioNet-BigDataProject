@@ -23000,14 +23000,14 @@ Gene::9949	AMMECR1	Gene
 Gene::995	CDC25C	Gene
 Gene::9950	GOLGA5	Gene
 Gene::9951	HS3ST4	Gene
-Gene::9953	HS3ST3B1	Gene
-Gene::9955	HS3ST3A1	Gene
+Gene::9953	HS3ST3B1    Gene
+Gene::9955  HS3ST3A1    Gene
 Gene::9956	HS3ST2	Gene
 Gene::9957	HS3ST1	Gene
 Gene::9958	USP15	Gene
 Gene::996	CDC27	Gene
 Gene::9960	USP3	Gene
-Gene::9961	MVP	Gene
+Gene::9961  MVP     Gene
 Gene::9962	SLC23A2	Gene
 Gene::9963	SLC23A1	Gene
 Gene::9965	FGF19	Gene
@@ -23040,4 +23040,4 @@ Gene::9993	DGCR2	Gene
 Gene::9994	CASP8AP2	Gene
 Gene::9997	SCO2	Gene
 Gene::10000000	XL1	Gene
-Gene::10000001	XL2	Gene	
+Gene::10000001	XL2     Gene	
