@@ -1,11 +1,18 @@
 import pandas as pd
 
-# Reading the nodes file
-nodes_df = pd.read_csv('Node.tsv', sep='\t')
-print("Nodes Data:")
-print(nodes_df.head())
+#read the data
+nodes_df = pd.read_csv('nodes_test.tsv', sep='\t')
+edges_df = pd.read_csv('edges_test.tsv', sep='\t')
 
-# Reading the edges file
-edges_df = pd.read_csv('Edge.tsv', sep='\t')
-print("Edges Data:")
+# print the data
+print("Nodes DataFrame:")
+print(nodes_df.head())
+print("Edges DataFrame:")
 print(edges_df.head())
+
+nodes_df.to_csv('nodes_output.tsv', sep='\t', index=False) # Save the nodes data to a new TSV file
+edges_df.to_csv('edges_output.tsv', sep='\t', index=False) # Save the edges data to a new TSV file
+
+print("Data has been processed and saved.")
+
+
