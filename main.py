@@ -17,16 +17,11 @@ print("Data has been processed and saved.") #just to check that the data has bee
 
 #below will be the code for question 2
 
-# Filter for edges that represent 'CbG' (Compound binds Gene)
-cbg_edges = edges_df[edges_df['metaedge'] == 'CbG']
-
-# Implementing a simple MapReduce
-# Map phase: Map each compound to a count of 1 for each binding
+cbg_edges = edges_df[edges_df['metaedge'] == 'CbG'] #this will filter the edges dataframe to only include the edges where the metaedge is equal to CbG
 map_result = cbg_edges['source'].value_counts().reset_index()
 map_result.columns = ['Compound', 'GeneCount']
 
-# Get the top 5 compounds with the most gene bindings
-top_5_compounds = map_result.sort_values(by='GeneCount', ascending=False).head(5)
+top_5_compounds = map_result.sort_values(by='GeneCount', ascending=False).head(5) #this will sort the top 5 compounds with the most gene bindings
 
 print("Top 5 compounds with the most gene bindings:")
 print(top_5_compounds)
