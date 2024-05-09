@@ -22,6 +22,7 @@ def compute_dug(edges_df):
 def stable_int_hash(value):
     return int(hashlib.sha256(value.encode('utf-8')).hexdigest(), 16) % (10**8)
 
+#   Task 5
 # Mid-square hashing method
 def mid_square_hash(value, r):
     int_value = stable_int_hash(value)
