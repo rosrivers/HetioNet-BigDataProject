@@ -1,4 +1,3 @@
-
 import pandas as pd
 import sys
 import hashlib
@@ -31,31 +30,31 @@ def mid_square_hash(value, r):
     mid = len(square_str) // 2
     return int(square_str[mid-r:mid+r])
 
-# Folding hashing method
-def folding_hash(value, digit_size):
-    int_value = stable_int_hash(value)
-    str_val = str(int_value)
-    split_numbers = [int(str_val[i:i+digit_size]) for i in range(0, len(str_val), digit_size)]
-    return sum(split_numbers)
-
-# Experiment with different hash methods and parameters
 def hash_experiment(ids, counts):
     hash_methods = {
         'Mid-square r=3': lambda x: mid_square_hash(x, 3),
         'Mid-square r=4': lambda x: mid_square_hash(x, 4),
-        'Folding size=2': lambda x: folding_hash(x, 2),
-        'Folding size=3': lambda x: folding_hash(x, 3)
     }
     
     results = {}
     for name, func in hash_methods.items():
-        hash_tables = [{func(id): id for id in ids for _ in range(counts[id])} for _ in range(10)]
+        hash_tables = []
+        print(f"Hash Tables for {name}:")
+        for i in range(10):
+            table = {}
+            for id in ids:
+                hash_value = func(id)
+                if hash_value in table:
+                    table[hash_value].append(id)
+                else:
+                    table[hash_value] = [id]
+            hash_tables.append(table)
+            print(f"Table {i+1}: {table}")
         total_size = sum(sys.getsizeof(table) for table in hash_tables)
         results[name] = total_size
         print(f"Total memory used by {name}: {total_size} bytes")
     
     return results
-
 def main():
     # Load data
     nodes_df, edges_df = load_data()
